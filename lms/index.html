@@ -9,30 +9,49 @@
 <body>
   <header>
     <h1>LMS Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Enrollments</a></li>
+        <li><a href="#">Material</a></li>
+        <li><a href="#">Assignments</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
-    <section id="user-form">
-      <h2>Add User</h2>
-      <form id="add-user-form">
+    <section id="user-section">
+      <h2>User Management</h2>
+      <form id="user-form">
         <label for="name">Name:</label>
-        <input type="text" id="name" required>
+        <input type="text" id="name" placeholder="Enter name" required>
         
         <label for="email">Email:</label>
-        <input type="email" id="email" required>
-
+        <input type="email" id="email" placeholder="Enter email" required>
+        
         <label for="role">Role:</label>
         <select id="role">
           <option value="Admin">Admin</option>
           <option value="Instructor">Instructor</option>
           <option value="Student">Student</option>
         </select>
-
+        
         <button type="submit">Add User</button>
       </form>
+      <h3>Current Users</h3>
+      <ul id="user-list"></ul>
     </section>
-    <section id="dashboards">
-      <h2>User Dashboards</h2>
-      <div id="dashboard-container"></div>
+    
+    <section id="course-section">
+      <h2>Course Management</h2>
+      <form id="course-form">
+        <label for="course-name">Course Name:</label>
+        <input type="text" id="course-name" placeholder="Enter course name" required>
+        
+        <button type="submit">Add Course</button>
+      </form>
+      <h3>Available Courses</h3>
+      <ul id="course-list"></ul>
     </section>
   </main>
   <script src="script.js"></script>
