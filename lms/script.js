@@ -1,100 +1,59 @@
-class User {
-  constructor(name, email) {
-    this.name = name;
-    this.email = email;
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const users = [];
+  const courses = [];
 
-  displayDashboard() {
-    return "Default Dashboard";
-  }
-}
-class Admin extends User {
-  displayDashboard() {
-    return `
-      <h3>Admin Dashboard</h3>
-      <ul>
-        <li>User Management</li>
-        <li>Course Management</li>
-        <li>Performance Analytics</li>
-        <li>System Settings</li>
-        <li>System Activity Monitoring</li>
-      </ul>
+  const userForm = document.getElementById("user-form");
+  const userList = document.getElementById("user-list");
+
+  const courseForm = document.getElementById("course-form");
+  const courseList = document.getElementById("course-list");
+
+  // Add User
+  userForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const role = document.getElementById("role").value;
+
+    const user = { name, email, role };
+    users.push(user);
+
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span>${name} (${role})</span>
+      <button class="delete">Delete</button>
     `;
-  }
-}
-class Instructor extends User {
-  displayDashboard() {
-    return `
-      <h3>Instructor Dashboard</h3>
-      <ul>
-        <li>Course Management</li>
-        <li>Assignment Grading</li>
-        <li>Student Performance</li>
-        <li>Course Enrollment Stats</li>
-        <li>Feedback Summary</li>
-      </ul>
-    `;
-  }
-}
-class Student extends User {
-  displayDashboard() {
-    return `
-      <h3>Student Dashboard</h3>
-      <ul>
-        <li>Course Enrollment</li>
-        <li>Material Access</li>
-        <li>Assignment Submission</li>
-        <li>Progress Tracking</li>
-        <li>Feedback and Grades</li>
-      </ul>
-    `;
-  }
-}
-class LMS {
-  constructor() {
-    this.users = [];
-  }
+    userList.appendChild(li);
 
-  addUser(user) {
-    this.users.push(user);
-    this.updateDashboards();
-  }
-
-  updateDashboards() {
-    const container = document.getElementById("dashboard-container");
-    container.innerHTML = ""; // Clear previous content
-
-    this.users.forEach((user) => {
-      const dashboard = document.createElement("div");
-      dashboard.className = "dashboard";
-      dashboard.innerHTML = `
-        <h2>${user.name} (${user.email})</h2>
-        ${user.displayDashboard()}
-      `;
-      container.appendChild(dashboard);
+    li.querySelector(".delete").addEventListener("click", () => {
+      const index = users.indexOf(user);
+      users.splice(index, 1);
+      li.remove();
     });
-  }
-}
-const lms = new LMS();
 
-document.getElementById("add-user-form").addEventListener("submit", (e) => {
-  e.preventDefault();
+    userForm.reset();
+  });
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const role = document.getElementById("role").value;
+  // Add Course
+  courseForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const courseName = document.getElementById("course-name").value;
 
-  let user;
-  if (role === "Admin") {
-    user = new Admin(name, email);
-  } else if (role === "Instructor") {
-    user = new Instructor(name, email);
-  } else if (role === "Student") {
-    user = new Student(name, email);
-  }
+    courses.push(courseName);
 
-  lms.addUser(user);
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span>${courseName}</span>
+      <button class="delete">Delete</button>
+    `;
+    courseList.appendChild(li);
 
-  // Clear form inputs
-  document.getElementById("add-user-form").reset();
+    li.querySelector(".delete").addEventListener("click", () => {
+      const index = courses.indexOf(courseName);
+      courses.splice(index, 1);
+      li.remove();
+    });
+
+    courseForm.reset();
+  });
 });
