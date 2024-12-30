@@ -2,14 +2,21 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: rgb(118, 255, 198);
+}
+h2 {
+   text-align: center;
+   font-family: cursive;
 }
 
 header {
-  background-color: #007bff;
-  color: white;
+  background-color: #e1a50e;
+  color: rgb(0, 0, 0);
   padding: 1rem;
   text-align: center;
+  font-family: "Rubik Vinyl", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 header nav ul {
@@ -19,7 +26,8 @@ header nav ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1.3rem;
+  font-family: cursive;
 }
 
 header nav ul li {
@@ -27,21 +35,21 @@ header nav ul li {
 }
 
 header nav ul li a {
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  background-color: #0056b3;
+  background-color: #dc0e0e;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 header nav ul li a:hover {
-  background-color: #003d82;
+  background-color: #841084;
 }
 
 header nav ul li a:active {
-  background-color: #002e61;
+  background-color: #0bdee9;
 }
 
 main {
@@ -49,7 +57,7 @@ main {
 }
 
 form {
-  background-color: white;
+  background-color: rgb(118, 255, 198);
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -69,14 +77,15 @@ form input, form select, form button {
 }
 
 form button {
-  background-color: #007bff;
-  color: white;
+  background-color: #e1a50e;
+  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
+  font-size: larger;
 }
 
 form button:hover {
-  background-color: #0056b3;
+  background-color: #00f2ff;
 }
 
 #dashboards {
@@ -111,7 +120,7 @@ form button:hover {
 @media (max-width: 768px) {
   header nav ul {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.3rem;
   }
 
   form {
@@ -129,6 +138,10 @@ form button:hover {
   .dashboard button.delete-button {
     padding: 0.4rem;
   }
+
+  header nav ul li a {
+    margin-bottom: 0.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -139,6 +152,7 @@ form button:hover {
   header nav ul li a {
     font-size: 0.9rem;
     padding: 0.4rem 0.8rem;
+    margin-bottom: 0.5rem;
   }
 
   form {
@@ -148,4 +162,8 @@ form button:hover {
   form input, form select, form button {
     font-size: 0.9rem;
   }
+}
+.delete{
+  background-color: red;
+  color: white;
 }
