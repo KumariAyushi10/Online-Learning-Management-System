@@ -1,17 +1,17 @@
-LMS Dashboard
+LMS Dashboard : 
 This repository contains a Learning Management System (LMS) Dashboard that allows the management of users with different roles (Admin, Instructor, Student). The project demonstrates user-specific dashboards and interactive features for adding and managing users.
 
-Project Structure
-index.html
+Project Structure : 
+index.html : 
 The main HTML file that structures the LMS Dashboard. It includes sections for adding users and displaying user-specific dashboards.
 
-styles.css
+styles.css : 
 Provides styling for the project, including form design, dashboard appearance, and overall layout.
 
-script.js
+script.js : 
 Implements the functionality of the LMS Dashboard. This includes classes for different user roles, dynamic creation of dashboards, and form handling for adding users.
 
-Features
+Features : 
 Role-Based Dashboards
 
 Admin: User Management, Course Management, Performance Analytics, System Settings, and Activity Monitoring.
